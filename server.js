@@ -2,12 +2,11 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const routes = require('./src/routes');
 
-const routes = express.Router;
-
 const server = express();
 
-// styles
+// middlewares
 server.use(express.static('public'));
+server.use(routes);
 
 server.set('view engine', 'njk');
 nunjucks.configure('views', {
